@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "/Users/mark26/Documents/Other Project/PTT Lucky Draw/pttrm-backend/dist/logs/error/.900c142db6382a8cf11827b74a0dba90c84affdf-audit.json",
+    "files": [
+        {
+            "date": 1662809518853,
+            "name": "/Users/mark26/Documents/Other Project/PTT Lucky Draw/pttrm-backend/dist/logs/error/2022-09-10.log",
+            "hash": "9164c5b27322f4b4c3820e569b398c7d09f38593bcb1aeec826d957552062b33"
+        }
+    ],
+    "hashType": "sha256"
+}
