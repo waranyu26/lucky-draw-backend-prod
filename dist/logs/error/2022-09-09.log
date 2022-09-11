@@ -72,6 +72,368 @@ SyntaxError: Unexpected token ';'
     at Module.require (internal/modules/cjs/loader.js:952:19)
     at require (internal/modules/cjs/helpers.js:88:18)
     at Object.<anonymous> (C:\Users\User\Documents\Work\pttrm-backend\src\controllers\master.controller.ts:3:1)
+<<<<<<< HEAD
+2022-09-09 19:45:12 error: uncaughtException: passport is not defined
+ReferenceError: passport is not defined
+    at new App (D:\PTT-RM\pttrm-backend\src\app.ts:31:29)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+    at phase4 (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\bin.ts:649:14)
+2022-09-09 19:47:48 error: uncaughtException: passport is not defined
+ReferenceError: passport is not defined
+    at new App (D:\PTT-RM\pttrm-backend\src\app.ts:31:29)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+    at phase4 (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\bin.ts:649:14)
+2022-09-09 19:50:43 error: uncaughtException: Cannot find module './passport-config'
+Require stack:
+- D:\PTT-RM\pttrm-backend\src\app.ts
+- D:\PTT-RM\pttrm-backend\src\server.ts
+Error: Cannot find module './passport-config'
+Require stack:
+- D:\PTT-RM\pttrm-backend\src\app.ts
+- D:\PTT-RM\pttrm-backend\src\server.ts
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:902:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (D:\PTT-RM\pttrm-backend\node_modules\@cspotcode\source-map-support\source-map-support.js:811:30)
+    at Function.Module._resolveFilename (D:\PTT-RM\pttrm-backend\node_modules\tsconfig-paths\src\register.ts:115:36)
+    at Function.Module._load (internal/modules/cjs/loader.js:746:27)
+    at Module.require (internal/modules/cjs/loader.js:974:19)
+    at require (internal/modules/cjs/helpers.js:93:18)
+    at App.initializePassport (D:\PTT-RM\pttrm-backend\src\app.ts:98:32)
+    at new App (D:\PTT-RM\pttrm-backend\src\app.ts:32:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+2022-09-09 20:05:24 error: uncaughtException: Cannot find module './passport-config'
+Require stack:
+- D:\PTT-RM\pttrm-backend\src\app.ts
+- D:\PTT-RM\pttrm-backend\src\server.ts
+Error: Cannot find module './passport-config'
+Require stack:
+- D:\PTT-RM\pttrm-backend\src\app.ts
+- D:\PTT-RM\pttrm-backend\src\server.ts
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:902:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (D:\PTT-RM\pttrm-backend\node_modules\@cspotcode\source-map-support\source-map-support.js:811:30)
+    at Function.Module._resolveFilename (D:\PTT-RM\pttrm-backend\node_modules\tsconfig-paths\src\register.ts:115:36)
+    at Function.Module._load (internal/modules/cjs/loader.js:746:27)
+    at Module.require (internal/modules/cjs/loader.js:974:19)
+    at require (internal/modules/cjs/helpers.js:93:18)
+    at App.initializePassport (D:\PTT-RM\pttrm-backend\src\app.ts:98:32)
+    at new App (D:\PTT-RM\pttrm-backend\src\app.ts:32:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+2022-09-09 23:12:30 error: uncaughtException: Cannot find module './passport-config'
+Require stack:
+- D:\PTT-RM\pttrm-backend\src\app.ts
+- D:\PTT-RM\pttrm-backend\src\server.ts
+Error: Cannot find module './passport-config'
+Require stack:
+- D:\PTT-RM\pttrm-backend\src\app.ts
+- D:\PTT-RM\pttrm-backend\src\server.ts
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:902:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (D:\PTT-RM\pttrm-backend\node_modules\@cspotcode\source-map-support\source-map-support.js:811:30)
+    at Function.Module._resolveFilename (D:\PTT-RM\pttrm-backend\node_modules\tsconfig-paths\src\register.ts:115:36)
+    at Function.Module._load (internal/modules/cjs/loader.js:746:27)
+    at Module.require (internal/modules/cjs/loader.js:974:19)
+    at require (internal/modules/cjs/helpers.js:93:18)
+    at App.initializePassport (D:\PTT-RM\pttrm-backend\src\app.ts:99:32)
+    at new App (D:\PTT-RM\pttrm-backend\src\app.ts:32:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+2022-09-09 23:15:48 error: uncaughtException: Cannot find module './passport-config'
+Require stack:
+- D:\PTT-RM\pttrm-backend\src\app.ts
+- D:\PTT-RM\pttrm-backend\src\server.ts
+Error: Cannot find module './passport-config'
+Require stack:
+- D:\PTT-RM\pttrm-backend\src\app.ts
+- D:\PTT-RM\pttrm-backend\src\server.ts
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:902:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (D:\PTT-RM\pttrm-backend\node_modules\@cspotcode\source-map-support\source-map-support.js:811:30)
+    at Function.Module._resolveFilename (D:\PTT-RM\pttrm-backend\node_modules\tsconfig-paths\src\register.ts:115:36)
+    at Function.Module._load (internal/modules/cjs/loader.js:746:27)
+    at Module.require (internal/modules/cjs/loader.js:974:19)
+    at require (internal/modules/cjs/helpers.js:93:18)
+    at App.initializePassport (D:\PTT-RM\pttrm-backend\src\app.ts:101:32)
+    at new App (D:\PTT-RM\pttrm-backend\src\app.ts:32:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+2022-09-09 23:18:13 error: uncaughtException: Cannot find module './passport-config'
+Require stack:
+- D:\PTT-RM\pttrm-backend\src\app.ts
+- D:\PTT-RM\pttrm-backend\src\server.ts
+Error: Cannot find module './passport-config'
+Require stack:
+- D:\PTT-RM\pttrm-backend\src\app.ts
+- D:\PTT-RM\pttrm-backend\src\server.ts
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:902:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (D:\PTT-RM\pttrm-backend\node_modules\@cspotcode\source-map-support\source-map-support.js:811:30)
+    at Function.Module._resolveFilename (D:\PTT-RM\pttrm-backend\node_modules\tsconfig-paths\src\register.ts:115:36)
+    at Function.Module._load (internal/modules/cjs/loader.js:746:27)
+    at Module.require (internal/modules/cjs/loader.js:974:19)
+    at require (internal/modules/cjs/helpers.js:93:18)
+    at App.initializePassport (D:\PTT-RM\pttrm-backend\src\app.ts:101:32)
+    at new App (D:\PTT-RM\pttrm-backend\src\app.ts:32:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+2022-09-09 23:21:40 error: uncaughtException: Cannot find module './passport-config'
+Require stack:
+- D:\PTT-RM\pttrm-backend\src\app.ts
+- D:\PTT-RM\pttrm-backend\src\server.ts
+Error: Cannot find module './passport-config'
+Require stack:
+- D:\PTT-RM\pttrm-backend\src\app.ts
+- D:\PTT-RM\pttrm-backend\src\server.ts
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:902:15)
+    at Function.Module._resolveFilename.sharedData.moduleResolveFilenameHook.installedValue (D:\PTT-RM\pttrm-backend\node_modules\@cspotcode\source-map-support\source-map-support.js:811:30)
+    at Function.Module._resolveFilename (D:\PTT-RM\pttrm-backend\node_modules\tsconfig-paths\src\register.ts:115:36)
+    at Function.Module._load (internal/modules/cjs/loader.js:746:27)
+    at Module.require (internal/modules/cjs/loader.js:974:19)
+    at require (internal/modules/cjs/helpers.js:93:18)
+    at App.initializePassport (D:\PTT-RM\pttrm-backend\src\app.ts:104:32)
+    at new App (D:\PTT-RM\pttrm-backend\src\app.ts:32:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:13)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+2022-09-09 23:22:47 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+2022-09-09 23:23:26 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+2022-09-09 23:23:30 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+2022-09-09 23:24:53 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+2022-09-09 23:25:05 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+2022-09-09 23:27:27 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+2022-09-09 23:33:54 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+2022-09-09 23:39:31 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+2022-09-09 23:39:40 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+2022-09-09 23:40:57 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+2022-09-09 23:41:03 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+2022-09-09 23:46:04 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+2022-09-09 23:46:16 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+2022-09-09 23:46:54 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+2022-09-09 23:48:58 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+2022-09-09 23:53:08 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+2022-09-09 23:53:12 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+2022-09-09 23:53:59 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+2022-09-09 23:55:00 error: uncaughtException: Cannot read property 'authenticate' of undefined
+TypeError: Cannot read property 'authenticate' of undefined
+    at AuthRoute.initializeRoutes (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:22:52)
+    at new AuthRoute (D:\PTT-RM\pttrm-backend\src\routes\auth.route.ts:15:10)
+    at Object.<anonymous> (D:\PTT-RM\pttrm-backend\src\server.ts:10:58)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Module.m._compile (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1618:23)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Object.require.extensions.<computed> [as .ts] (D:\PTT-RM\pttrm-backend\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:76:12)
+=======
 2022-09-09 18:09:10 error: uncaughtException: Unexpected token ';'
 E:\DIMMOY\Work\PTT\pttrm-backend\src\services\master.service.ts:11
         const ;
@@ -2800,3 +3162,4 @@ TSError: ⨯ Unable to compile TypeScript:
     at Module.load (internal/modules/cjs/loader.js:937:32)
     at Function.Module._load (internal/modules/cjs/loader.js:778:12)
     at Module.require (internal/modules/cjs/loader.js:961:19)
+>>>>>>> b5f09fabbc278c4cb7eb5b35da7bf36790a5cde8

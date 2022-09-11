@@ -6,19 +6,19 @@ Object.defineProperty(exports, "default", {
     enumerable: true,
     get: ()=>_default
 });
-const _masterService = _interopRequireDefault(require("../services/master.service"));
+const _productService = _interopRequireDefault(require("../services/product.service"));
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
         default: obj
     };
 }
-let MasterController = class MasterController {
+let ProductController = class ProductController {
     constructor(){
-        this.syncService = new _masterService.default();
-        this.syncMasterData = async (req, res)=>{
+        this.productService = new _productService.default();
+        this.readProduct = async (req, res)=>{
             try {
-                const stationId = BigInt(req.params.id);
-                const response = await this.syncService.syncMasterData(stationId);
+                const productId = BigInt(req.params.id);
+                const response = await this.productService.readProduct(productId, 'id, code, name, image');
                 res.status(response.statusCode).json(response);
             } catch (e) {
                 console.log(e);
@@ -28,8 +28,9 @@ let MasterController = class MasterController {
                 });
             }
         };
+        this.createProduct = async ()=>{};
     }
 };
-const _default = MasterController;
+const _default = ProductController;
 
-//# sourceMappingURL=master.controller.js.map
+//# sourceMappingURL=product.controller.js.map

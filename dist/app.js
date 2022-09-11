@@ -19,6 +19,10 @@ const _config = require("./config");
 const _errorMiddleware = _interopRequireDefault(require("./middlewares/error.middleware"));
 const _logger = require("./utils/logger");
 const _pgPool = _interopRequireDefault(require("./db_pool/pg_pool"));
+const _passport = _interopRequireDefault(require("passport"));
+const _passportConfigJs = _interopRequireDefault(require("./passport/passport-config.js"));
+const _expressFlash = _interopRequireDefault(require("express-flash"));
+const _expressSession = _interopRequireDefault(require("express-session"));
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
         default: obj
@@ -44,6 +48,7 @@ let App = class App {
             origin: _config.ORIGIN,
             credentials: _config.CREDENTIALS
         }));
+        this.app.options('*', (0, _cors.default)());
         this.app.use((0, _hpp.default)());
         this.app.use((0, _helmet.default)());
         this.app.use((0, _compression.default)());
@@ -64,6 +69,8 @@ let App = class App {
         }
     }
     initializeRoutes(routes) {
+        this.app.use(_passport.default.initialize());
+        this.app.use(_passport.default.session());
         routes.forEach((route)=>{
             this.app.use('/', route.router);
         });
@@ -87,10 +94,36 @@ let App = class App {
     initializeErrorHandling() {
         this.app.use(_errorMiddleware.default);
     }
+    async initializePassportLib() {
+        const pool = new _pgPool.default();
+        (0, _passportConfigJs.default)(_passport.default, async (username)=>{
+            const userProfile = await pool.aquery(`
+          SELECT * FROM tbl_users as U 
+          WHERE U.username = '${username}'
+        `);
+            return userProfile.rows[0];
+        }, async (id)=>{
+            const userProfile = await pool.aquery(`
+          SELECT * FROM tbl_users as U 
+          WHERE U.id = '${id}'
+        `);
+            return userProfile.rows[0];
+        });
+        this.app.use((0, _expressFlash.default)());
+        this.app.use((0, _expressSession.default)({
+            secret: process.env.SESSION_SECRET,
+            resave: false,
+            saveUninitialized: false,
+            cookie: {
+                _expires: 30 * 24 * 60 * 60 * 1000
+            }
+        }));
+    }
     constructor(routes){
         this.app = (0, _express.default)();
         this.env = _config.NODE_ENV || 'development';
         this.port = _config.PORT || 3000;
+        this.initializePassportLib();
         this.initializeMiddlewares();
         this.initializeRoutes(routes);
         this.initializeDatabase();

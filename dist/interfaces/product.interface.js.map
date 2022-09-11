@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/interfaces/product.interface.ts"],"sourcesContent":["export interface Product {\n  id: BigInt;\n  code: string;\n  name: string;\n  image: string;\n}\n\nexport interface ProductOnStation extends Product {\n  station_id: BigInt;\n  station_code: string;\n  station_name_th: string;\n  station_name_en: string;\n}\n"],"names":[],"mappings":"AAAA"}

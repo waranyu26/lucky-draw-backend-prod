@@ -17,6 +17,7 @@ const validationMiddleware = (type, value = 'body', skipMissingProperties = fals
             forbidNonWhitelisted
         }).then((errors)=>{
             if (errors.length > 0) {
+                console.log('TT bad b0y');
                 const message = errors.map((error)=>Object.values(error.constraints)).join(', ');
                 next(new _httpException.HttpException(400, message));
             } else {
