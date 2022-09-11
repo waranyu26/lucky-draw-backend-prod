@@ -24,7 +24,7 @@ let UsersRoute = class UsersRoute {
         this.router.delete(`${this.path}/:id(\\d+)`, this.usersController.deleteUser);
     }
     constructor(){
-        this.path = '/users';
+        this.path = '/not used';
         this.router = (0, _express.Router)();
         this.usersController = new _usersController.default();
         this.initializeRoutes();

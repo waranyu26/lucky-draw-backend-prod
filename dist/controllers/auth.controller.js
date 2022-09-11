@@ -23,7 +23,6 @@ let AuthController = class AuthController {
         console.log(req.sessionID);
         console.log(req.user);
         console.log(req.session);
-        console.log(req);
         res.setHeader('Content-Type', 'application/json');
         return res.send(JSON.stringify({
             status: 200,
@@ -80,9 +79,18 @@ let AuthController = class AuthController {
                     password_mobile_pos: req.body.password_mobile_pos
                 };
                 let querySQL = `
-        INSERT INTO tbl_users
+        INSERT INTO tbl_users (
+          username,
+          password,
+          name,
+          phone_number,
+          role_id,
+          station_id,
+          created_at,
+          updated_at,
+          password_mobile_pos
+        )
         VALUES (
-          ${userProfile.id},
           '${userProfile.username}',
           '${userProfile.password}',
           '${userProfile.name}',

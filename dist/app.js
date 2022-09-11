@@ -96,12 +96,31 @@ let App = class App {
     }
     async initializePassportLib() {
         const pool = new _pgPool.default();
-        (0, _passportConfigJs.default)(_passport.default, async (username)=>{
+        (0, _passportConfigJs.default)(_passport.default, async (moderator)=>{
             const userProfile = await pool.aquery(`
           SELECT * FROM tbl_users as U 
-          WHERE U.username = '${username}'
+          WHERE U.username = '${moderator}' AND
+                U.role_id != 1
         `);
             return userProfile.rows[0];
+        }, async (cashier, serialNumber)=>{
+            const tempStationID = await pool.aquery(`
+        SELECT station_id FROM tbl_mobile_pos
+        WHERE series_number = '${serialNumber}'       
+        `);
+            console.log(`
+        SELECT station_id FROM tbl_mobile_pos
+        WHERE series_number = '${serialNumber}'       
+      `);
+            const stationID = Number(tempStationID.rows[0].station_id);
+            console.log(stationID);
+            const cashierProfile = await pool.aquery(`
+          SELECT * FROM tbl_users as U 
+          WHERE U.username = '${cashier}' AND
+                U.role_id = 1 AND
+                U.station_id = ${stationID}
+        `);
+            return cashierProfile.rows[0];
         }, async (id)=>{
             const userProfile = await pool.aquery(`
           SELECT * FROM tbl_users as U 

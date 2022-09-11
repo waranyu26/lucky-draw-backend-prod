@@ -1,4 +1,6 @@
 node_modules
 logs/*
 
+# dotenv
 .env.production.local
+.env.database

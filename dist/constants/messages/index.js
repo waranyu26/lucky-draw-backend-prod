@@ -10,6 +10,7 @@ const message = {
     success: {
         insert: 'Row(s) inserted',
         update: 'Row(s) updated',
+        delete: 'Row(s) deleted',
         user: {
             email: 'Details has been sent to your mail, if Exists.(Email - In development)',
             login: 'User Login Successful',
