@@ -44,7 +44,7 @@ class App {
     initializeMiddlewares() {
         this.app.use((0, morgan_1.default)(_config_1.LOG_FORMAT, { stream: logger_1.stream }));
         this.app.use((0, cors_1.default)({ origin: _config_1.ORIGIN, credentials: _config_1.CREDENTIALS }));
-        this.app.options('*', (0, cors_1.default)());
+        // this.app.options('*', cors())
         this.app.use((0, hpp_1.default)());
         this.app.use((0, helmet_1.default)());
         this.app.use((0, compression_1.default)());
@@ -66,8 +66,32 @@ class App {
     initializeRoutes(routes) {
         // ================== requirement from passport
         // inint should before route
+        this.app.use((0, express_flash_1.default)());
+        this.app.use((0, express_session_1.default)({
+            // genid: function(req) {
+            //   return crypto.randomUUID(); // use UUIDs for session IDs
+            // },
+            secret: process.env.SESSION_SECRET,
+            resave: false,
+            saveUninitialized: false,
+            // milisecond 
+            // this case is 30 days
+            cookie: {
+                _expires: 30 * 24 * 60 * 60 * 1000,
+                // sameSite: 'none',
+                httpOnly: true,
+                // secure: true,
+            },
+        }));
         this.app.use(passport_1.default.initialize());
         this.app.use(passport_1.default.session());
+        this.app.enable("trust proxy");
+        this.app.use(function (req, res, next) {
+            res.header("Access-Control-Allow-Origin", _config_1.ORIGIN);
+            res.header("Access-Control-Allow-Credentials", "true");
+            // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Cache-Control, Authorisation");
+            next();
+        });
         routes.forEach(route => {
             this.app.use('/', route.router);
         });
@@ -123,18 +147,6 @@ class App {
         `);
             return userProfile.rows[0];
         });
-        this.app.use((0, express_flash_1.default)());
-        this.app.use((0, express_session_1.default)({
-            // genid: function(req) {
-            //   return crypto.randomUUID(); // use UUIDs for session IDs
-            // },
-            secret: process.env.SESSION_SECRET,
-            resave: false,
-            saveUninitialized: false,
-            // milisecond 
-            // this case is 30 days
-            cookie: { _expires: 30 * 24 * 60 * 60 * 1000 },
-        }));
     }
 }
 exports.default = App;

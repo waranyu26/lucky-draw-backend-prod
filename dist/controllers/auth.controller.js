@@ -107,10 +107,10 @@ class AuthController {
         return 1;
     }
     logInSuccess(req, res, next) {
-        console.log(req.sessionID);
-        console.log(req.user);
-        console.log(req.session);
-        // console.log(req)
+        console.log("SessionID:", req.sessionID);
+        console.log("Profile:", req.user);
+        console.log("Session", req.session);
+        // console.log(res)
         res.setHeader('Content-Type', 'application/json');
         return res.send(JSON.stringify({
             status: 200,
