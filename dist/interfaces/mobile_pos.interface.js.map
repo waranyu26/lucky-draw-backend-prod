@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../src/interfaces/mobile_pos.interface.ts"],"sourcesContent":["export interface MobilePos {\n  id: BigInt;\n  station_id?: BigInt;\n  name: string;\n  series_number: string;\n  status: number;\n}\n\nexport interface MobilePosOnStation extends MobilePos {\n  station_id: BigInt;\n}\n"],"names":[],"mappings":"AAAA"}
+{"version":3,"file":"mobile_pos.interface.js","sourceRoot":"","sources":["../../src/interfaces/mobile_pos.interface.ts"],"names":[],"mappings":""}

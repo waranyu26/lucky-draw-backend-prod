@@ -1,19 +1,15 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-Object.defineProperty(exports, "default", {
-    enumerable: true,
-    get: ()=>_default
-});
-const _express = require("express");
-const _stationController = _interopRequireDefault(require("../controllers/station.controller"));
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-        default: obj
-    };
-}
-let StationRoute = class StationRoute {
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const express_1 = require("express");
+const station_controller_1 = tslib_1.__importDefault(require("../controllers/station.controller"));
+class StationRoute {
+    constructor() {
+        this.path = '/station';
+        this.router = (0, express_1.Router)();
+        this.stationController = new station_controller_1.default();
+        this.initializeRoutes();
+    }
     initializeRoutes() {
         this.router.get(`${this.path}`, this.stationController.listStation);
         this.router.get(`${this.path}/:id`, this.stationController.readStation);
@@ -21,13 +17,6 @@ let StationRoute = class StationRoute {
         this.router.put(`${this.path}/:id`, this.stationController.createStation);
         this.router.delete(`${this.path}/:id`, this.stationController.createStation);
     }
-    constructor(){
-        this.path = '/station';
-        this.router = (0, _express.Router)();
-        this.stationController = new _stationController.default();
-        this.initializeRoutes();
-    }
-};
-const _default = StationRoute;
-
+}
+exports.default = StationRoute;
 //# sourceMappingURL=station.route.js.map

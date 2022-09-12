@@ -1,33 +1,21 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-Object.defineProperty(exports, "default", {
-    enumerable: true,
-    get: ()=>_default
-});
-const _pgPool = _interopRequireDefault(require("../db_pool/pg_pool"));
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-        default: obj
-    };
-}
-let IndexController = class IndexController {
-    constructor(){
-        this.index = async (req, res, next)=>{
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const pg_pool_1 = tslib_1.__importDefault(require("../db_pool/pg_pool"));
+class IndexController {
+    constructor() {
+        this.index = async (req, res, next) => {
             try {
-                const pool = new _pgPool.default();
+                const pool = new pg_pool_1.default();
                 const create = await pool.aquery('SELECT * from users', []);
-                res.status(201).json({
-                    data: create,
-                    message: 'created'
-                });
-            } catch (error) {
+                // console.log(create)
+                res.status(201).json({ data: create, message: 'created' });
+            }
+            catch (error) {
                 next(error);
             }
         };
     }
-};
-const _default = IndexController;
-
+}
+exports.default = IndexController;
 //# sourceMappingURL=index.controller.js.map

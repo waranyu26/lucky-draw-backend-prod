@@ -1,31 +1,24 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-const _app = _interopRequireDefault(require("./app"));
-const _validateEnv = _interopRequireDefault(require("./utils/validateEnv"));
-const _authRoute = _interopRequireDefault(require("./routes/auth.route"));
-const _indexRoute = _interopRequireDefault(require("./routes/index.route"));
-const _masterRoute = _interopRequireDefault(require("./routes/master.route"));
-const _stationRoute = _interopRequireDefault(require("./routes/station.route"));
-const _productRoute = _interopRequireDefault(require("./routes/product.route"));
-const _tblUsersRoute = _interopRequireDefault(require("./routes/tbl_users.route"));
-const _shiftRoute = _interopRequireDefault(require("./routes/shift.route"));
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-        default: obj
-    };
-}
-(0, _validateEnv.default)();
-const app = new _app.default([
-    new _indexRoute.default(),
-    new _tblUsersRoute.default(),
-    new _authRoute.default(),
-    new _masterRoute.default(),
-    new _stationRoute.default(),
-    new _productRoute.default(),
-    new _shiftRoute.default(), 
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const app_1 = tslib_1.__importDefault(require("./app"));
+const validateEnv_1 = tslib_1.__importDefault(require("./utils/validateEnv"));
+const auth_route_1 = tslib_1.__importDefault(require("./routes/auth.route"));
+const index_route_1 = tslib_1.__importDefault(require("./routes/index.route"));
+const master_route_1 = tslib_1.__importDefault(require("./routes/master.route"));
+const station_route_1 = tslib_1.__importDefault(require("./routes/station.route"));
+const product_route_1 = tslib_1.__importDefault(require("./routes/product.route"));
+const tbl_users_route_1 = tslib_1.__importDefault(require("./routes/tbl_users.route"));
+const shift_route_1 = tslib_1.__importDefault(require("./routes/shift.route"));
+(0, validateEnv_1.default)();
+const app = new app_1.default([
+    new index_route_1.default(),
+    new tbl_users_route_1.default(),
+    new auth_route_1.default(),
+    new master_route_1.default(),
+    new station_route_1.default(),
+    new product_route_1.default(),
+    new shift_route_1.default(),
 ]);
 app.listen();
-
 //# sourceMappingURL=server.js.map

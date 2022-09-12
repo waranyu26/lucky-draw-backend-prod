@@ -1,55 +1,50 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-Object.defineProperty(exports, "default", {
-    enumerable: true,
-    get: ()=>_default
-});
-const _pgPool = _interopRequireDefault(require("../db_pool/pg_pool"));
-const _messages = require("../constants/messages");
-const _productService = _interopRequireDefault(require("./product.service"));
-const _stationService = _interopRequireDefault(require("./station.service"));
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-        default: obj
-    };
-}
-let MasterService = class MasterService {
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const pg_pool_1 = tslib_1.__importDefault(require("../db_pool/pg_pool"));
+const messages_1 = require("../constants/messages");
+const product_service_1 = tslib_1.__importDefault(require("./product.service"));
+const station_service_1 = tslib_1.__importDefault(require("./station.service"));
+class MasterService {
+    constructor() {
+        this.productService = new product_service_1.default();
+        this.stationService = new station_service_1.default();
+    }
     async getConditionsData(idxCondition, conditions, promotion) {
+        // match between promotion and conditions
         const result = [];
-        while(idxCondition < conditions.length){
+        while (idxCondition < conditions.length) {
             if (conditions[idxCondition].id == promotion.id) {
                 const condition = {
                     product_id: conditions[idxCondition].product_id,
                     special_type: conditions[idxCondition].special_type,
-                    special_num: conditions[idxCondition].special_num
+                    special_num: conditions[idxCondition].special_num,
                 };
                 result.push(condition);
                 idxCondition++;
-            } else {
+            }
+            else {
                 break;
             }
         }
-        return [
-            idxCondition,
-            result
-        ];
+        return [idxCondition, result];
     }
     async getTemplatesData(idxTemplate, idxTemplateDetail, templates, templatesDetail, promotion) {
+        // match between promotion and templates
         const result = [];
-        while(idxTemplate < templates.length){
+        while (idxTemplate < templates.length) {
             const details = [];
-            while(idxTemplateDetail < templatesDetail.length){
+            while (idxTemplateDetail < templatesDetail.length) {
                 if (templatesDetail[idxTemplateDetail].promotion_template_id == templates[idxTemplate].promotion_template_id) {
                     const detail = {
                         type: templatesDetail[idxTemplateDetail].type,
                         text_detail: templatesDetail[idxTemplateDetail].text_detail,
-                        text_font: templatesDetail[idxTemplateDetail].text_font
+                        text_font: templatesDetail[idxTemplateDetail].text_font,
                     };
                     details.push(detail);
                     idxTemplateDetail++;
-                } else {
+                }
+                else {
                     break;
                 }
             }
@@ -58,29 +53,23 @@ let MasterService = class MasterService {
                     type: templates[idxTemplate].type,
                     type_detail: templates[idxTemplate].type_detail,
                     line_type: templates[idxTemplate].line_type,
-                    detail: details
+                    detail: details,
                 };
                 result.push(template);
                 idxTemplate++;
-            } else {
+            }
+            else {
                 break;
             }
         }
-        return [
-            idxTemplate,
-            idxTemplateDetail,
-            result
-        ];
+        return [idxTemplate, idxTemplateDetail, result];
     }
     async syncMasterData(stationId) {
         try {
-            const pool = new _pgPool.default();
+            const pool = new pg_pool_1.default();
             const station = await this.stationService.readStation(stationId, 'id, code, name_th, name_en');
             if (station.statusCode === 404) {
-                return {
-                    statusCode: 404,
-                    message: _messages.message.errors.notFound
-                };
+                return { statusCode: 404, message: messages_1.message.errors.notFound };
             }
             const usersSQL = await pool.aquery(`SELECT U.username,U.password,U.password_mobile_pos,U.name,U.phone_number,R.name AS role_name
         FROM tbl_users AS U
@@ -123,38 +112,27 @@ let MasterService = class MasterService {
             const templates = templatesSQL.rows;
             const templatesDetail = templatesDetailSQL.rows;
             let idxCondition = 0;
-            for(let i = 0; i < promotions.length; i++){
+            for (let i = 0; i < promotions.length; i++) {
                 [idxCondition, promotions[i].conditions] = await this.getConditionsData(idxCondition, conditions, promotions[i]);
             }
             let idxTemplate = 0;
             let idxTemplateDetail = 0;
-            for(let i1 = 0; i1 < promotions.length; i1++){
-                [idxTemplate, idxTemplateDetail, promotions[i1].templates] = await this.getTemplatesData(idxTemplate, idxTemplateDetail, templates, templatesDetail, promotions[i1]);
+            for (let i = 0; i < promotions.length; i++) {
+                [idxTemplate, idxTemplateDetail, promotions[i].templates] = await this.getTemplatesData(idxTemplate, idxTemplateDetail, templates, templatesDetail, promotions[i]);
             }
             const data = {
                 station: station.data,
                 users,
                 products: products.data,
-                promotions
+                promotions,
             };
-            return {
-                statusCode: 200,
-                message: _messages.message.success.ok,
-                data
-            };
-        } catch (e) {
+            return { statusCode: 200, message: messages_1.message.success.ok, data };
+        }
+        catch (e) {
             console.log(e);
-            return {
-                statusCode: 500,
-                message: _messages.message.errors.internal
-            };
+            return { statusCode: 500, message: messages_1.message.errors.internal };
         }
     }
-    constructor(){
-        this.productService = new _productService.default();
-        this.stationService = new _stationService.default();
-    }
-};
-const _default = MasterService;
-
+}
+exports.default = MasterService;
 //# sourceMappingURL=master.service.js.map

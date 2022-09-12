@@ -1,22 +1,32 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-Object.defineProperty(exports, "default", {
-    enumerable: true,
-    get: ()=>PGPool
-});
-const _pg = require("pg");
-const _config = require("../config");
-let PGPool = class PGPool {
+Object.defineProperty(exports, "__esModule", { value: true });
+const pg_1 = require("pg");
+const _config_1 = require("../config");
+class PGPool {
+    constructor() {
+        this.pool = new pg_1.Pool({
+            user: _config_1.DB_USER_NAME || 'postgres',
+            host: _config_1.DB_HOST_NAME || 'localhost',
+            password: _config_1.DB_PASSWORD || '',
+            port: parseInt(_config_1.DB_PORT) || 25060,
+            database: _config_1.DB_DATABASE || 'postgres',
+            ssl: {
+                rejectUnauthorized: false,
+                ca: _config_1.SSL_CA_CERTIFICATES || '',
+            },
+        });
+    }
     async aquery(sqlText, params = []) {
         const pool = await this.pool.connect();
         try {
+            // await pool.query(`SET SESSION postgres.user = '${cUser}'`, []);
             const result = await pool.query(sqlText, params);
             return result;
-        } catch (e) {
+        }
+        catch (e) {
             throw e;
-        } finally{
+        }
+        finally {
             pool.release();
         }
     }
@@ -24,19 +34,6 @@ let PGPool = class PGPool {
         const pool = await this.pool.connect();
         return pool;
     }
-    constructor(){
-        this.pool = new _pg.Pool({
-            user: _config.DB_USER_NAME || 'postgres',
-            host: _config.DB_HOST_NAME || 'localhost',
-            password: _config.DB_PASSWORD || '',
-            port: parseInt(_config.DB_PORT) || 25060,
-            database: _config.DB_DATABASE || 'postgres',
-            ssl: {
-                rejectUnauthorized: false,
-                ca: _config.SSL_CA_CERTIFICATES || ''
-            }
-        });
-    }
-};
-
+}
+exports.default = PGPool;
 //# sourceMappingURL=pg_pool.js.map

@@ -1,51 +1,36 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-Object.defineProperty(exports, "default", {
-    enumerable: true,
-    get: ()=>_default
-});
-const _pgPool = _interopRequireDefault(require("../db_pool/pg_pool"));
-const _tblUsersService = _interopRequireDefault(require("../services/tbl_users.service"));
-const _bcrypt = _interopRequireDefault(require("bcrypt"));
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-        default: obj
-    };
-}
-let tableUsersController = class tableUsersController {
-    test(req, res, next) {
-        res.setHeader('Content-Type', 'application/json');
-        return res.send(JSON.stringify({
-            status: 200,
-            message: 'test ctrl'
-        }));
-    }
-    constructor(){
-        this.usersService = new _tblUsersService.default();
-        this.pool = new _pgPool.default();
-        this.getUsers = async (req, res, next)=>{
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const pg_pool_1 = tslib_1.__importDefault(require("../db_pool/pg_pool"));
+const tbl_users_service_1 = tslib_1.__importDefault(require("../services/tbl_users.service"));
+const bcrypt_1 = tslib_1.__importDefault(require("bcrypt"));
+class tableUsersController {
+    constructor() {
+        this.usersService = new tbl_users_service_1.default();
+        this.pool = new pg_pool_1.default();
+        this.getUsers = async (req, res, next) => {
             try {
                 const data = await this.usersService.findAllUsers();
                 return res.send(await data);
-            } catch (error) {
+            }
+            catch (error) {
                 next(error);
             }
         };
-        this.getUserById = async (req, res, next)=>{
+        this.getUserById = async (req, res, next) => {
             try {
                 const data = await this.usersService.findUserById(req.params.id);
                 return res.send(await data);
-            } catch (error) {
+            }
+            catch (error) {
                 next(error);
             }
         };
-        this.createUser = async (req, res, next)=>{
+        this.createUser = async (req, res, next) => {
             try {
-                const parseUserProfile = async (req)=>{
-                    let salt = await _bcrypt.default.genSalt(10);
-                    let hashed = await _bcrypt.default.hash(req.body.password, salt);
+                const parseUserProfile = async (req) => {
+                    let salt = await bcrypt_1.default.genSalt(10);
+                    let hashed = await bcrypt_1.default.hash(req.body.password, salt);
                     return {
                         id: req.body.id,
                         username: req.body.username,
@@ -64,25 +49,27 @@ let tableUsersController = class tableUsersController {
                 }
                 const data = this.usersService.createUser(userProfile);
                 return res.send(await data);
-            } catch (error) {
+            }
+            catch (error) {
                 next(error);
             }
         };
-        this.updateUser = async (req, res, next)=>{
+        this.updateUser = async (req, res, next) => {
             try {
                 const conflictCheck = await this.usersService.conflictUpdateCheck(req.params.id, req.body);
                 if (conflictCheck != null) {
                     return res.send(conflictCheck);
                 }
-                const genHash = async (password)=>{
-                    let salt = await _bcrypt.default.genSalt(10);
-                    return await _bcrypt.default.hash(req.body.password, salt);
+                const genHash = async (password) => {
+                    let salt = await bcrypt_1.default.genSalt(10);
+                    return await bcrypt_1.default.hash(req.body.password, salt);
                 };
-                const parseChanges = async (req)=>{
+                const parseChanges = async (req) => {
                     let t_string = ``;
                     let count = 0;
-                    for(let field in req.body){
-                        let value = await (field == 'password' ? genHash(req.body[field]) : req.body[field]);
+                    for (let field in req.body) {
+                        let value = await (field == 'password' ?
+                            genHash(req.body[field]) : req.body[field]);
                         let adder = isNaN(value) ? `'${value}'` : `${value}`;
                         t_string += `${field} = ${adder}, `;
                         count += 1;
@@ -96,20 +83,28 @@ let tableUsersController = class tableUsersController {
                 const changes = await parseChanges(req);
                 const data = this.usersService.updateUser(req.params.id, changes);
                 return res.send(await data);
-            } catch (error) {
+            }
+            catch (error) {
                 next(error);
             }
         };
-        this.deleteUser = async (req, res, next)=>{
+        this.deleteUser = async (req, res, next) => {
             try {
                 const data = await this.usersService.deleteUser(req.params.id);
                 return res.send(await data);
-            } catch (error) {
+            }
+            catch (error) {
                 next(error);
             }
         };
     }
-};
-const _default = tableUsersController;
-
+    test(req, res, next) {
+        res.setHeader('Content-Type', 'application/json');
+        return res.send(JSON.stringify({
+            status: 200,
+            message: 'test ctrl',
+        }));
+    }
+}
+exports.default = tableUsersController;
 //# sourceMappingURL=tbl_users.controller.js.map

@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../src/constants/index.ts"],"sourcesContent":["export { message as default } from './messages';\n"],"names":["default","message"],"mappings":"AAAA;;;;+BAAoBA,SAAO;;aAAlBC,SAAO,QAAA;;0BAAmB,kBAAY"}
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../src/constants/index.ts"],"names":[],"mappings":";;;AAAA,uCAAgD;AAAvC,mGAAA,OAAO,OAAW"}

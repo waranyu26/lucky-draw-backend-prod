@@ -1,71 +1,21 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-Object.defineProperty(exports, "default", {
-    enumerable: true,
-    get: ()=>_default
-});
-const _authService = _interopRequireDefault(require("../services/auth.service"));
-const _pgPool = _interopRequireDefault(require("../db_pool/pg_pool"));
-const _passport = _interopRequireDefault(require("passport"));
-const _bcrypt = _interopRequireDefault(require("bcrypt"));
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-        default: obj
-    };
-}
-let AuthController = class AuthController {
-    passRegisterRequirement() {
-        return 1;
-    }
-    logInSuccess(req, res, next) {
-        console.log(req.sessionID);
-        console.log(req.user);
-        console.log(req.session);
-        res.setHeader('Content-Type', 'application/json');
-        return res.send(JSON.stringify({
-            status: 200,
-            sessionID: req.sessionID,
-            userProfile: req.user,
-            expires: req.session.cookie._expires,
-            message: 'login success'
-        }));
-    }
-    logInFailed(req, res, next) {
-        res.setHeader('Content-Type', 'application/json');
-        return res.send(JSON.stringify({
-            status: 401,
-            message: 'login failed'
-        }));
-    }
-    validationFailed(req, res, next) {
-        const errorcode = [
-            `Unauthorized access`,
-            `Not a cashier`,
-            `Not an admin`,
-            `Not a super admin`, 
-        ];
-        res.setHeader('Content-Type', 'application/json');
-        return res.send(JSON.stringify({
-            status: 401,
-            message: `Your role does not match the requirement ERROR: '${errorcode[Number(req.params.failID)]}'`
-        }));
-    }
-    badRequest(req, res, next) {
-        res.setHeader('Content-Type', 'application/json');
-        return res.send(JSON.stringify({
-            status: 400,
-            message: `Bad request`
-        }));
-    }
-    constructor(){
-        this.authService = new _authService.default();
-        this.pool = new _pgPool.default();
-        this.signUp = async (req, res)=>{
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const auth_service_1 = tslib_1.__importDefault(require("../services/auth.service"));
+// import { pool } from '../database';
+const pg_pool_1 = tslib_1.__importDefault(require("../db_pool/pg_pool"));
+const passport_1 = tslib_1.__importDefault(require("../passport"));
+const bcrypt_1 = tslib_1.__importDefault(require("bcrypt"));
+class AuthController {
+    constructor() {
+        this.authService = new auth_service_1.default();
+        this.pool = new pg_pool_1.default();
+        // public passport = require('passport-local')
+        // public signUp = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+        this.signUp = async (req, res) => {
             if (this.passRegisterRequirement()) {
-                let salt = await _bcrypt.default.genSalt(10);
-                let hashed = await _bcrypt.default.hash(req.body.password, salt);
+                let salt = await bcrypt_1.default.genSalt(10);
+                let hashed = await bcrypt_1.default.hash(req.body.password, salt);
                 let userProfile = {
                     id: req.body.id,
                     username: req.body.username,
@@ -78,6 +28,7 @@ let AuthController = class AuthController {
                     updated_at: null,
                     password_mobile_pos: req.body.password_mobile_pos
                 };
+                // ${userProfile.id},
                 let querySQL = `
         INSERT INTO tbl_users (
           username,
@@ -101,6 +52,7 @@ let AuthController = class AuthController {
           ${userProfile.updated_at},
           '${userProfile.password_mobile_pos}'
       )`;
+                // console.log(querySQL)
                 try {
                     await this.pool.aquery(querySQL);
                     return res.end(JSON.stringify({
@@ -108,7 +60,8 @@ let AuthController = class AuthController {
                         XID: req.user,
                         message: 'successfully add new user :)'
                     }));
-                } catch (error) {
+                }
+                catch (error) {
                     console.log(error);
                     return res.end(JSON.stringify({
                         status: 500,
@@ -118,35 +71,91 @@ let AuthController = class AuthController {
                 }
             }
         };
-        this.logIn = (req, res, next)=>{
-            const authFunc = _passport.default.authenticate('local', {
+        this.logIn = (req, res, next) => {
+            const authFunc = passport_1.default.authenticate('local', {
                 successRedirect: `/auth/success`,
                 failureRedirect: `/auth/fail`,
-                failureFlash: true
+                failureFlash: true,
             });
             authFunc(req, res, next);
         };
-        this.logOut = async (req, res, next)=>{
+        this.logOut = async (req, res, next) => {
             req.logOut();
+            // res.redirect('/login')
             res.setHeader('Content-Type', 'application/json');
             return res.send(JSON.stringify({
                 status: 200,
-                message: 'logout success'
+                message: 'logout success',
+                // email: req.user.email,
+                // password: req.user.password,
             }));
         };
-        this.test = async (req, res)=>{
+        this.test = async (req, res) => {
             try {
-                const pool = new _pgPool.default();
+                const pool = new pg_pool_1.default();
                 const dataset = await pool.aquery('SELECT * FROM tbl_station WHERE id = 10');
                 console.log(dataset.rows);
                 res.setHeader('Content-Type', 'application/json');
                 return res.end(JSON.stringify(dataset.rows));
-            } catch (error) {
+            }
+            catch (error) {
                 console.log(error);
             }
         };
     }
-};
-const _default = AuthController;
-
+    passRegisterRequirement() {
+        return 1;
+    }
+    logInSuccess(req, res, next) {
+        console.log(req.sessionID);
+        console.log(req.user);
+        console.log(req.session);
+        // console.log(req)
+        res.setHeader('Content-Type', 'application/json');
+        return res.send(JSON.stringify({
+            status: 200,
+            sessionID: req.sessionID,
+            userProfile: req.user,
+            expires: req.session.cookie._expires,
+            message: 'login success',
+            // email: req.user.email,
+            // password: req.user.password,
+        }));
+    }
+    logInFailed(req, res, next) {
+        // console.log(req)
+        res.setHeader('Content-Type', 'application/json');
+        return res.send(JSON.stringify({
+            status: 401,
+            message: 'login failed',
+            // email: req.user.email,
+            // password: req.user.password,
+        }));
+    }
+    validationFailed(req, res, next) {
+        const errorcode = [
+            `Unauthorized access`,
+            `Not a cashier`,
+            `Not an admin`,
+            `Not a super admin`,
+        ];
+        res.setHeader('Content-Type', 'application/json');
+        return res.send(JSON.stringify({
+            status: 401,
+            message: `Your role does not match the requirement ERROR: '${errorcode[Number(req.params.failID)]}'`,
+            // email: req.user.email,
+            // password: req.user.password,
+        }));
+    }
+    badRequest(req, res, next) {
+        res.setHeader('Content-Type', 'application/json');
+        return res.send(JSON.stringify({
+            status: 400,
+            message: `Bad request`,
+            // email: req.user.email,
+            // password: req.user.password,
+        }));
+    }
+}
+exports.default = AuthController;
 //# sourceMappingURL=auth.controller.js.map

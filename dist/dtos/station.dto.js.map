@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../src/dtos/station.dto.ts"],"sourcesContent":["import { IsEmail, IsString } from 'class-validator';\n\n// export class GetStationDTO {\n\n// }\n"],"names":[],"mappings":"AAAA"}
+{"version":3,"file":"station.dto.js","sourceRoot":"","sources":["../../src/dtos/station.dto.ts"],"names":[],"mappings":";;AAEA,+BAA+B;AAE/B,IAAI"}

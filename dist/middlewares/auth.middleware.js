@@ -1,41 +1,33 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-Object.defineProperty(exports, "default", {
-    enumerable: true,
-    get: ()=>_default
-});
-const _jsonwebtoken = require("jsonwebtoken");
-const _config = require("../config");
-const _httpException = require("../exceptions/HttpException");
-const _usersModel = _interopRequireDefault(require("../models/users.model"));
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-        default: obj
-    };
-}
-const authMiddleware = async (req, res, next)=>{
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const jsonwebtoken_1 = require("jsonwebtoken");
+const _config_1 = require("../config");
+const HttpException_1 = require("../exceptions/HttpException");
+const users_model_1 = tslib_1.__importDefault(require("../models/users.model"));
+const authMiddleware = async (req, res, next) => {
     try {
         const Authorization = req.cookies['Authorization'] || (req.header('Authorization') ? req.header('Authorization').split('Bearer ')[1] : null);
         if (Authorization) {
-            const secretKey = _config.SECRET_KEY;
-            const verificationResponse = await (0, _jsonwebtoken.verify)(Authorization, secretKey);
+            const secretKey = _config_1.SECRET_KEY;
+            const verificationResponse = (await (0, jsonwebtoken_1.verify)(Authorization, secretKey));
             const userId = verificationResponse.id;
-            const findUser = _usersModel.default.find((user)=>user.id === userId);
+            const findUser = users_model_1.default.find(user => user.id === userId);
             if (findUser) {
                 req.user = findUser;
                 next();
-            } else {
-                next(new _httpException.HttpException(401, 'Wrong authentication token'));
             }
-        } else {
-            next(new _httpException.HttpException(404, 'Authentication token missing'));
+            else {
+                next(new HttpException_1.HttpException(401, 'Wrong authentication token'));
+            }
         }
-    } catch (error) {
-        next(new _httpException.HttpException(401, 'Wrong authentication token'));
+        else {
+            next(new HttpException_1.HttpException(404, 'Authentication token missing'));
+        }
+    }
+    catch (error) {
+        next(new HttpException_1.HttpException(401, 'Wrong authentication token'));
     }
 };
-const _default = authMiddleware;
-
+exports.default = authMiddleware;
 //# sourceMappingURL=auth.middleware.js.map

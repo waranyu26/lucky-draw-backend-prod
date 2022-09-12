@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../src/interfaces/station.interface.ts"],"sourcesContent":["import { MobilePos } from './mobile_pos.interface';\nimport { Product } from './product.interface';\n\nexport interface Station {\n  id?: bigint;\n  code: string;\n  name_th: string;\n  name_en: string;\n  status: boolean;\n  products?: Array<Product>;\n  mobile_pos?: Array<MobilePos>;\n}\n"],"names":[],"mappings":"AAAA"}
+{"version":3,"file":"station.interface.js","sourceRoot":"","sources":["../../src/interfaces/station.interface.ts"],"names":[],"mappings":""}
